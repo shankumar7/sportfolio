@@ -1,84 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Calendar, MapPin } from "lucide-react";
 
-const educationData = [
+const education = [
   {
-    institution: "CMR College of Engineering and Technology",
-    location: "Kandlakoya, Secunderabad, Telangana",
-    degree: "B. Tech Computer Science Engineering - CSE (Pursuing)",
-    score: "CGPA: 9.23",
-    period: "2024-2028",
+    period: "2023 - 2027",
+    degree: "B. Tech in Computer Science & Engineering",
+    institution: "CMR Institute of Technology",
+    score: "CGPA 8.3",
   },
   {
-    institution: "Krishnaveni Junior College",
-    location: "Bhadradri Kothagudem, Telangana",
-    degree: "Intermediate (MPC)",
-    score: "Percentage: 97.9%",
-    period: "2022-2024",
+    period: "2021 - 2023",
+    degree: "Intermediate",
+    institution: "Narayana Junior College",
+    score: "96.4%",
   },
   {
-    institution: "Sri Chaitanya Techno School",
-    location: "Bhadradri Kothagudem, Telangana",
-    degree: "High School",
-    score: "GPA: 9.8",
-    period: "2021-2022",
-  },
+    period: "2020 - 2021",
+    degree: "10th Grade",
+    institution: "Z.P.H.S (Boys)",
+    score: "CGPA 10.0",
+  }
 ];
 
 export default function Education() {
   return (
-    <section id="education" className="py-20 px-6 max-w-5xl mx-auto">
+    <section id="education" className="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t-[3px] border-black">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-12 text-center md:text-left"
+        className="mb-32"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
-          <GraduationCap className="text-primary-500" size={32} />
-          Education
+        <h2 className="text-[10vw] md:text-8xl font-black tracking-tighter lowercase mb-4">
+          education.
         </h2>
-        <div className="h-1 w-20 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mx-auto md:mx-0"></div>
       </motion.div>
 
-      <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-        {educationData.map((item, index) => (
+      <div className="relative border-l-[6px] border-black ml-4 md:ml-12 pl-8 md:pl-20 py-12 flex flex-col gap-32">
+        {education.map((item, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="relative"
           >
-            {/* Icon */}
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-neutral-900 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow flex-shrink-0 z-10 text-primary-400">
-              <GraduationCap size={18} />
-            </div>
-            
-            {/* Card */}
-            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-primary-500/30">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
-                <h3 className="font-bold text-lg text-white">{item.institution}</h3>
-                <span className="flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-primary-500/10 text-primary-400 w-fit">
-                  <Calendar size={12} />
+            {/* Timeline Dot */}
+            <div className="absolute -left-[45px] md:-left-[93px] top-0 w-8 h-8 rounded-full border-[4px] border-black bg-[#eab308]"></div>
+
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-wrap items-center gap-6">
+                <span className="px-6 py-2 bg-[#eab308] font-black border-[3px] border-black rounded-full text-xl md:text-2xl uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   {item.period}
+                </span>
+                <span className="font-black text-3xl md:text-5xl uppercase text-black/20">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
               
-              <h4 className="text-neutral-300 font-medium mb-3">{item.degree}</h4>
+              <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight leading-none max-w-4xl">
+                {item.degree}
+              </h3>
               
-              <div className="flex flex-col gap-2 text-sm text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <MapPin size={14} />
-                  <span>{item.location}</span>
-                </div>
-                <div className="flex items-center gap-2 font-semibold text-secondary-400">
-                  <span>{item.score}</span>
-                </div>
+              <div className="flex flex-col md:flex-row md:items-center gap-4 text-xl md:text-2xl font-bold font-serif italic text-black/70">
+                <span>{item.institution}</span>
+                <span className="hidden md:inline">•</span>
+                <span className="bg-black text-white px-4 py-1 not-italic font-sans text-lg uppercase tracking-widest">
+                  {item.score}
+                </span>
               </div>
             </div>
           </motion.div>
@@ -87,3 +79,4 @@ export default function Education() {
     </section>
   );
 }
+

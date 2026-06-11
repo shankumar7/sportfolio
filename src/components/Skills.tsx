@@ -1,39 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Cpu, Database, Layout, LineChart, Terminal, MessageSquare } from "lucide-react";
 
 const technicalSkills = [
-  {
-    category: "Programming Languages",
-    icon: <Code2 size={20} />,
-    skills: ["Python", "Java(OOP)", "C"],
-  },
-  {
-    category: "Web Technologies (Frontend)",
-    icon: <Layout size={20} />,
-    skills: ["HTML", "CSS"],
-  },
-  {
-    category: "Database",
-    icon: <Database size={20} />,
-    skills: ["Oracle 19c (SQL, PL/SQL)", "DBMS"],
-  },
-  {
-    category: "Data Visualization",
-    icon: <LineChart size={20} />,
-    skills: ["Tableau"],
-  },
-  {
-    category: "Computer Science Fundamentals",
-    icon: <Cpu size={20} />,
-    skills: ["Data Structures and Algorithms (DSA)"],
-  },
-  {
-    category: "Operating Systems",
-    icon: <Terminal size={20} />,
-    skills: ["Ubuntu (Linux)"],
-  },
+  { category: "Programming Languages", skills: ["Python", "Java(OOP)", "C"] },
+  { category: "Web Technologies (Frontend)", skills: ["HTML", "CSS"] },
+  { category: "Database", skills: ["Oracle 19c (SQL, PL/SQL)", "DBMS"] },
+  { category: "Data Visualization", skills: ["Tableau"] },
+  { category: "Computer Science Fundamentals", skills: ["Data Structures and Algorithms (DSA)"] },
+  { category: "Operating Systems", skills: ["Ubuntu (Linux)"] },
 ];
 
 const softSkills = [
@@ -43,65 +18,43 @@ const softSkills = [
   "Adaptability",
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } },
-};
-
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 px-6 max-w-5xl mx-auto">
+    <section id="skills" className="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t-[3px] border-black">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-12 text-center md:text-left"
+        className="mb-24"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center md:justify-start gap-3">
-          <Cpu className="text-secondary-500" size={32} />
-          Technical & Soft Skills
+        <h2 className="text-[10vw] md:text-8xl font-black tracking-tighter lowercase mb-4">
+          skills.
         </h2>
-        <div className="h-1 w-20 bg-gradient-to-r from-secondary-500 to-primary-500 rounded-full mx-auto md:mx-0"></div>
       </motion.div>
 
-      <div className="space-y-12">
+      <div className="flex flex-col gap-32">
+        {/* Technical Skills - Expanded Layout */}
         <div>
-          <h3 className="text-2xl font-semibold mb-6 text-white/90">Technical Skills</h3>
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
+          <h3 className="text-4xl md:text-6xl font-black mb-16 uppercase tracking-tight inline-block bg-black text-white px-6 py-2 rotate-1">
+            Technical
+          </h3>
+          <div className="flex flex-col gap-12">
             {technicalSkills.map((tech, index) => (
               <motion.div 
                 key={index} 
-                variants={itemVariants}
-                className="glass-card rounded-2xl p-6 transition-all hover:bg-white/10"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex flex-col md:flex-row md:items-center justify-between border-b-[3px] border-black pb-8 gap-8 hover:bg-[#fbbf24] transition-colors p-6 rounded-3xl"
               >
-                <div className="flex items-center gap-3 mb-4 text-primary-400">
-                  <div className="p-2 rounded-lg bg-primary-500/10">
-                    {tech.icon}
-                  </div>
-                  <h4 className="font-semibold text-white">{tech.category}</h4>
-                </div>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="font-black text-3xl md:text-5xl uppercase w-full md:w-1/2">{tech.category}</h4>
+                <div className="flex flex-wrap gap-4 w-full md:w-1/2 md:justify-end">
                   {tech.skills.map((skill, i) => (
                     <span 
                       key={i}
-                      className="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-neutral-300"
+                      className="px-6 py-3 text-lg md:text-xl font-bold rounded-full border-[3px] border-black uppercase tracking-wider bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                     >
                       {skill}
                     </span>
@@ -109,31 +62,32 @@ export default function Skills() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        <div>
-          <h3 className="text-2xl font-semibold mb-6 text-white/90">Soft Skills</h3>
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-4"
-          >
+        {/* Soft Skills - Expanded Layout */}
+        <div className="mt-16">
+          <h3 className="text-4xl md:text-6xl font-black mb-16 uppercase tracking-tight inline-block bg-black text-white px-6 py-2 -rotate-1">
+            Soft Skills
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {softSkills.map((skill, index) => (
               <motion.div 
                 key={index} 
-                variants={itemVariants}
-                className="flex items-center gap-2 px-5 py-3 rounded-full glass-card hover:bg-secondary-500/20 hover:border-secondary-500/50 transition-colors cursor-default"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="px-8 py-12 rounded-[2.5rem] border-[3px] border-black bg-[#fbbf24] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all cursor-default flex items-center justify-center text-center"
               >
-                <MessageSquare size={16} className="text-secondary-400" />
-                <span className="font-medium text-neutral-200">{skill}</span>
+                <span className="text-3xl md:text-4xl font-black uppercase tracking-widest">{skill}</span>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+

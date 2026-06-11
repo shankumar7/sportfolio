@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} dark scroll-smooth`}>
-      <body className="font-sans bg-neutral-950 text-neutral-50 antialiased overflow-x-hidden min-h-screen">
-        <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-950/40 via-neutral-950 to-neutral-950"></div>
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+      <body className="font-sans bg-[#fdfdfc] text-[#09090b] antialiased overflow-x-hidden min-h-screen">
         {children}
       </body>
     </html>
   );
 }
+
