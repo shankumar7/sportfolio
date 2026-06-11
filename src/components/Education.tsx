@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 const education = [
   {
-    period: "2023 - 2027",
-    degree: "B. Tech in Computer Science & Engineering",
-    institution: "CMR Institute of Technology",
-    score: "CGPA 8.3",
+    period: "2024 - 2028",
+    degree: "B. Tech Computer Science Engineering - CSE (Pursuing)",
+    institution: "CMR College of Engineering and Technology",
+    score: "CGPA 9.23",
   },
   {
-    period: "2021 - 2023",
-    degree: "Intermediate",
-    institution: "Narayana Junior College",
-    score: "96.4%",
+    period: "2022 - 2024",
+    degree: "Intermediate (MPC)",
+    institution: "Krishnaveni Junior College",
+    score: "Percentage: 97.9",
   },
   {
-    period: "2020 - 2021",
-    degree: "10th Grade",
-    institution: "Z.P.H.S (Boys)",
-    score: "CGPA 10.0",
+    period: "2021 - 2022",
+    degree: "High School",
+    institution: "Sri Chaitanya Techno School",
+    score: "GPA 9.8",
   }
 ];
 
