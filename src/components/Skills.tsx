@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SiPython, SiC, SiHtml5, SiCss, SiOracle, SiTableau, SiUbuntu } from "react-icons/si";
-import { FaJava, FaDatabase, FaCode } from "react-icons/fa";
+import { SiPython, SiC, SiHtml5, SiCss, SiUbuntu } from "react-icons/si";
+import { FaJava, FaDatabase, FaCode, FaChartBar } from "react-icons/fa";
 
 const technicalSkills = [
   { category: "Programming Languages", skills: [
@@ -17,12 +17,12 @@ const technicalSkills = [
     ]
   },
   { category: "Database", skills: [
-      { name: "Oracle 19c (SQL, PL/SQL)", icon: SiOracle },
+      { name: "Oracle 19c (SQL, PL/SQL)", icon: FaDatabase },
       { name: "DBMS", icon: FaDatabase }
     ]
   },
   { category: "Data Visualization", skills: [
-      { name: "Tableau", icon: SiTableau }
+      { name: "Tableau", icon: FaChartBar }
     ]
   },
   { category: "Computer Science Fundamentals", skills: [
