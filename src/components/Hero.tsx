@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight, MapPin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -13,11 +14,14 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
         className="z-10 w-full flex flex-col gap-8 h-full"
       >
-        {/* Top: Massive Typography */}
-        <div className="w-full border-b-[3px] border-black pb-4 md:pb-6">
+        {/* Top: Massive Typography + Profile Image */}
+        <div className="w-full border-b-[3px] border-black pb-4 md:pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <h1 className="text-6xl md:text-8xl lg:text-9xl leading-[0.85] font-black tracking-tighter uppercase text-black whitespace-nowrap overflow-hidden text-ellipsis">
             Sushanth<br/>Gorla.
           </h1>
+          <div className="w-32 h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 minimal-card overflow-hidden shrink-0 relative shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+             <Image src="/profile-placeholder.png" alt="Sushanth Gorla" fill className="object-cover" priority />
+          </div>
         </div>
 
         {/* Bottom: Bento Grid */}
